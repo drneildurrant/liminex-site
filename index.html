@@ -1,63 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Liminex — coming soon</title>
-<meta name="description" content="Liminex — a depth-first platform for the wisdom traditions. Cross over, come deeper.">
+<title>Liminex — opening soon</title>
+<meta name="description" content="Liminex — practical philosophy and genuine practice across the great traditions, grounded in the actual corpus. Cross over, come deeper. Opening soon.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Liminex">
+<meta property="og:description" content="Cross over, come deeper. Practical philosophy and genuine practice across the great traditions — grounded in the actual corpus. Opening soon.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0c0d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0c0d'/%3E%3Cpath d='M16 8 a8 8 0 1 1 -6 13 a5 5 0 1 1 4 -8' fill='none' stroke='%23d8dbdd' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='17' r='2.4' fill='%23cc2f3d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#0b0c0d;color:#d8dbdd;font-family:'Spectral',Georgia,serif;-webkit-font-smoothing:antialiased}
-  .page{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:80px 28px}
-  .grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%224%22%20stitchTiles%3D%22stitch%22%3E%3C%2FfeTurbulence%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%20opacity%3D%220.04%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");opacity:.5;pointer-events:none}
-  .glow{position:absolute;top:46%;left:50%;width:760px;height:760px;transform:translate(-50%,-58%);background:radial-gradient(circle, rgba(204,47,61,.055) 0%, transparent 62%);pointer-events:none}
-  header{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:26px 36px}
-  .brand{display:flex;align-items:center;gap:9px}
-  .brand span{font-weight:300;font-size:16px;letter-spacing:.05em;color:#f2f4f5}
-  .dom{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7c8286}
-  main{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
-  .soon{display:flex;align-items:center;gap:9px;margin-bottom:38px}
-  .soon i{width:6px;height:6px;border-radius:999px;background:#cc2f3d;display:block}
-  .soon b{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#9aa0a3}
-  .mark{margin-bottom:22px}
-  h1{font-weight:200;font-size:84px;line-height:.92;letter-spacing:.03em;color:#f2f4f5}
-  h1 .x{color:#7c8286}
-  .tag{font-style:italic;font-weight:300;font-size:28px;color:#e2616c;margin-top:16px}
-  footer{position:absolute;bottom:0;left:0;right:0;text-align:center;padding:30px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#565b5e}
-  @media (max-width:640px){h1{font-size:56px}.mark svg{height:160px!important}.tag{font-size:22px}footer{font-size:11px;letter-spacing:.22em}}
+  :root{
+    --bg:#0b0c0d; --ink:#d8dbdd; --bright:#f2f4f5; --warm:#b7bcbf;
+    --tan:#9aa0a3; --muted:#7c8286; --faint:#565b5e;
+    --crimson:#cc2f3d; --crimson-bright:#e2616c;
+    --serif:'Spectral',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--serif); font-weight:300;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    min-height:100dvh; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(115% 75% at 50% 36%, #15171a 0%, #0b0c0d 64%, #08090a 100%);
+  }
+  body::after{ /* static texture */
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  main{ position:relative; z-index:1; width:min(580px,88vw); text-align:center; padding:52px 0 64px; }
+  .mark{ width:132px; height:auto; margin:0 auto 26px; display:block; }
+  .word{
+    font-family:var(--serif); font-weight:300; color:var(--bright);
+    font-size:clamp(40px,11vw,64px); letter-spacing:.06em; line-height:1;
+  }
+  .tag{
+    margin-top:20px; font-family:var(--serif); font-style:italic; font-weight:400;
+    color:var(--warm); font-size:clamp(19px,4.6vw,25px); letter-spacing:.01em;
+  }
+  .hr{width:42px;height:1px;background:var(--crimson);opacity:.72;margin:30px auto 28px}
+  .creed{
+    font-family:var(--serif); font-style:italic; font-weight:300; color:var(--bright);
+    font-size:clamp(17px,4vw,21px); line-height:1.5; max-width:30ch; margin:0 auto;
+  }
+  .voice{ margin:24px auto 0; max-width:33ch; color:var(--ink); font-size:15px; line-height:1.6; }
+  .voice b{ color:var(--bright); font-weight:400; }
+  .pos{
+    margin:14px auto 0; max-width:42ch; color:var(--tan);
+    font-family:var(--mono); font-weight:300; font-size:11.5px; line-height:1.85; letter-spacing:.01em;
+  }
+  .soon{
+    margin-top:38px; font-family:var(--mono); font-weight:400; color:var(--tan);
+    font-size:11px; letter-spacing:.34em; text-transform:uppercase;
+  }
+  form{
+    margin:18px auto 0; display:flex; gap:8px; max-width:392px;
+    border-bottom:1px solid var(--faint); padding-bottom:2px;
+  }
+  form:focus-within{border-color:var(--tan)}
+  input[type=email]{
+    flex:1; background:transparent; border:0; color:var(--bright);
+    font-family:var(--serif); font-weight:300; font-size:15px; padding:11px 2px; outline:none;
+  }
+  input[type=email]::placeholder{color:var(--muted)}
+  button{
+    background:transparent; border:0; cursor:pointer; color:var(--crimson-bright);
+    font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.2em;
+    text-transform:uppercase; padding:0 6px; transition:color .25s;
+  }
+  button:hover{color:var(--bright)}
+  .note{margin-top:13px; min-height:17px; font-family:var(--mono); font-weight:300; font-size:11px; letter-spacing:.04em; color:var(--muted)}
+  .note.err{color:var(--crimson-bright)}
+  .thanks{
+    margin:26px auto 0; max-width:34ch; color:var(--bright);
+    font-family:var(--serif); font-style:italic; font-size:18px; line-height:1.5; display:none;
+  }
+  footer{
+    position:fixed; left:0; right:0; bottom:22px; z-index:1; text-align:center;
+    font-family:var(--mono); font-weight:300; font-size:10.5px; letter-spacing:.22em; color:var(--faint);
+  }
+  .fade{opacity:0; transform:translateY(10px); animation:rise 1.1s cubic-bezier(.22,.61,.36,1) forwards}
+  .d1{animation-delay:.15s}.d2{animation-delay:.5s}.d3{animation-delay:.85s}
+  .d4{animation-delay:1.15s}.d5{animation-delay:1.45s}.d6{animation-delay:1.75s}.d7{animation-delay:2.05s}
+  @keyframes rise{to{opacity:1; transform:none}}
+  #core{transform-origin:center; transform-box:fill-box; animation:pulse 4.6s ease-in-out infinite}
+  #halo{transform-origin:center; transform-box:fill-box; animation:breathe 4.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.92}50%{opacity:1}}
+  @keyframes breathe{0%,100%{opacity:.30; transform:scale(1)}50%{opacity:.58; transform:scale(1.18)}}
+  @media (prefers-reduced-motion:reduce){ .fade{animation:none;opacity:1;transform:none} #core,#halo{animation:none} }
+  @media (max-width:480px){ .mark{width:108px;margin-bottom:20px} footer{bottom:15px} }
 </style>
 </head>
 <body>
-  <div class="page">
-    <div class="grain"></div>
-    <div class="glow"></div>
-    <header>
-      <div class="brand"><svg style="height:22px;display:block;color:#b7bcbf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 132" fill="none" role="img" aria-label="Liminex">
-  <path d="M64.00 64.40 L64.08 64.41 L64.16 64.42 L64.24 64.43 L64.32 64.44 L64.40 64.44 L64.48 64.44 L64.57 64.44 L64.65 64.43 L64.73 64.42 L64.82 64.41 L64.90 64.40 L64.98 64.38 L65.07 64.36 L65.15 64.34 L65.23 64.31 L65.32 64.29 L65.40 64.26 L65.48 64.22 L65.56 64.19 L65.64 64.15 L65.72 64.10 L65.80 64.06 L65.88 64.01 L65.95 63.96 L66.03 63.91 L66.10 63.85 L66.17 63.79 L66.24 63.73 L66.31 63.67 L66.38 63.60 L66.44 63.53 L66.51 63.46 L66.57 63.38 L66.63 63.31 L66.68 63.23 L66.74 63.15 L66.79 63.06 L66.84 62.98 L66.89 62.89 L66.93 62.80 L66.98 62.71 L67.02 62.61 L67.05 62.52 L67.08 62.42 L67.12 62.32 L67.14 62.22 L67.17 62.12 L67.19 62.02 L67.21 61.91 L67.22 61.81 L67.23 61.70 L67.24 61.59 L67.24 61.48 L67.24 61.37 L67.24 61.26 L67.23 61.15 L67.22 61.04 L67.21 60.93 L67.19 60.82 L67.17 60.71 L67.14 60.60 L67.12 60.49 L67.08 60.38 L67.05 60.27 L67.01 60.16 L66.96 60.05 L66.91 59.94 L66.86 59.84 L66.81 59.73 L66.75 59.63 L66.68 59.52 L66.62 59.42 L66.55 59.32 L66.47 59.22 L66.39 59.13 L66.31 59.03 L66.23 58.94 L66.14 58.85 L66.05 58.76 L65.95 58.68 L65.85 58.60 L65.75 58.52 L65.65 58.44 L65.54 58.37 L65.43 58.30 L65.32 58.23 L65.20 58.17 L65.08 58.11 L64.96 58.05 L64.83 58.00 L64.71 57.95 L64.58 57.90 L64.45 57.86 L64.31 57.83 L64.18 57.79 L64.04 57.77 L63.90 57.74 L63.76 57.72 L63.62 57.71 L63.48 57.70 L63.33 57.69 L63.19 57.69 L63.04 57.69 L62.90 57.70 L62.75 57.71 L62.60 57.73 L62.45 57.75 L62.31 57.78 L62.16 57.81 L62.01 57.85 L61.86 57.89 L61.72 57.94 L61.57 58.00 L61.43 58.05 L61.28 58.12 L61.14 58.18 L61.00 58.26 L60.86 58.34 L60.73 58.42 L60.59 58.51 L60.46 58.60 L60.33 58.70 L60.20 58.80 L60.07 58.91 L59.95 59.02 L59.83 59.14 L59.71 59.26 L59.60 59.38 L59.49 59.51 L59.39 59.65 L59.28 59.79 L59.19 59.93 L59.09 60.08 L59.00 60.23 L58.92 60.38 L58.84 60.54 L58.76 60.70 L58.69 60.87 L58.62 61.04 L58.56 61.21 L58.51 61.38 L58.46 61.56 L58.41 61.74 L58.38 61.92 L58.34 62.10 L58.32 62.29 L58.29 62.48 L58.28 62.67 L58.27 62.86 L58.27 63.05 L58.27 63.24 L58.28 63.44 L58.30 63.63 L58.32 63.83 L58.35 64.03 L58.39 64.22 L58.43 64.42 L58.48 64.62 L58.53 64.81 L58.60 65.01 L58.67 65.20 L58.74 65.39 L58.82 65.58 L58.91 65.77 L59.01 65.96 L59.11 66.14 L59.22 66.33 L59.34 66.51 L59.46 66.68 L59.59 66.86 L59.73 67.03 L59.87 67.20 L60.02 67.36 L60.17 67.52 L60.33 67.67 L60.50 67.83 L60.67 67.97 L60.85 68.11 L61.03 68.25 L61.22 68.38 L61.41 68.51 L61.61 68.63 L61.82 68.74 L62.03 68.85 L62.24 68.95 L62.46 69.05 L62.68 69.13 L62.91 69.22 L63.14 69.29 L63.38 69.36 L63.61 69.42 L63.86 69.47 L64.10 69.52 L64.35 69.55 L64.60 69.58 L64.85 69.60 L65.10 69.62 L65.36 69.62 L65.62 69.62 L65.87 69.61 L66.13 69.59 L66.39 69.56 L66.66 69.52 L66.92 69.47 L67.18 69.42 L67.44 69.35 L67.70 69.28 L67.96 69.20 L68.21 69.11 L68.47 69.01 L68.72 68.90 L68.98 68.78 L69.23 68.65 L69.47 68.52 L69.72 68.37 L69.96 68.22 L70.19 68.06 L70.42 67.89 L70.65 67.71 L70.87 67.52 L71.09 67.33 L71.31 67.12 L71.51 66.91 L71.72 66.69 L71.91 66.46 L72.10 66.23 L72.28 65.98 L72.46 65.73 L72.63 65.48 L72.79 65.21 L72.94 64.94 L73.08 64.66 L73.22 64.38 L73.35 64.09 L73.47 63.79 L73.58 63.49 L73.68 63.19 L73.77 62.88 L73.85 62.56 L73.92 62.24 L73.98 61.92 L74.03 61.59 L74.08 61.26 L74.11 60.92 L74.12 60.58 L74.13 60.24 L74.13 59.90 L74.12 59.56 L74.09 59.21 L74.05 58.87 L74.00 58.52 L73.94 58.17 L73.87 57.83 L73.79 57.48 L73.69 57.13 L73.59 56.79 L73.47 56.45 L73.34 56.11 L73.19 55.77 L73.04 55.43 L72.87 55.10 L72.69 54.77 L72.50 54.45 L72.30 54.13 L72.09 53.81 L71.86 53.50 L71.63 53.20 L71.38 52.90 L71.12 52.61 L70.85 52.33 L70.57 52.05 L70.28 51.78 L69.98 51.52 L69.67 51.27 L69.34 51.02 L69.01 50.79 L68.67 50.56 L68.32 50.35 L67.96 50.14 L67.60 49.95 L67.22 49.77 L66.84 49.60 L66.44 49.44 L66.04 49.29 L65.64 49.15 L65.23 49.03 L64.81 48.92 L64.38 48.82 L63.95 48.74 L63.52 48.67 L63.08 48.61 L62.63 48.57 L62.18 48.54 L61.73 48.53 L61.28 48.53 L60.82 48.55 L60.36 48.58 L59.90 48.63 L59.44 48.69 L58.98 48.77 L58.52 48.86 L58.06 48.97 L57.60 49.09 L57.14 49.23 L56.69 49.39 L56.23 49.56 L55.78 49.75 L55.34 49.95 L54.89 50.17 L54.46 50.41 L54.02 50.66 L53.60 50.92 L53.18 51.21 L52.77 51.50 L52.36 51.81 L51.96 52.14 L51.58 52.48 L51.20 52.84 L50.83 53.21 L50.47 53.59 L50.12 53.99 L49.78 54.41 L49.45 54.83 L49.14 55.27 L48.84 55.72 L48.55 56.18 L48.28 56.66 L48.02 57.15 L47.77 57.64 L47.54 58.15 L47.33 58.67 L47.13 59.20 L46.94 59.74 L46.78 60.29 L46.63 60.84 L46.50 61.41 L46.38 61.98 L46.29 62.56 L46.21 63.14 L46.15 63.73 L46.11 64.33 L46.09 64.93 L46.09 65.53 L46.11 66.14 L46.15 66.74 L46.21 67.36 L46.29 67.97 L46.39 68.58 L46.51 69.19 L46.65 69.81 L46.81 70.42 L47.00 71.03 L47.20 71.63 L47.43 72.24 L47.67 72.84 L47.94 73.43 L48.23 74.02 L48.54 74.60 L48.87 75.18 L49.22 75.75 L49.59 76.30 L49.98 76.85 L50.40 77.39 L50.83 77.92 L51.28 78.44 L51.75 78.95 L52.24 79.44 L52.75 79.92 L53.28 80.39 L53.82 80.84 L54.38 81.27 L54.96 81.69 L55.56 82.10 L56.18 82.48 L56.81 82.85 L57.45 83.20 L58.11 83.53 L58.79 83.84 L59.47 84.13 L60.18 84.39 L60.89 84.64 L61.62 84.86 L62.35 85.07 L63.10 85.24 L63.86 85.40 L64.63 85.53 L65.40 85.64 L66.18 85.72 L66.97 85.77 L67.77 85.81 L68.57 85.81 L69.38 85.79 L70.19 85.74 L71.00 85.67 L71.81 85.56 L72.63 85.43 L73.44 85.28 L74.26 85.09 L75.07 84.88 L75.88 84.64 L76.69 84.37 L77.49 84.08 L78.29 83.75 L79.08 83.40 L79.86 83.02 L80.64 82.62 L81.41 82.18 L82.16 81.72 L82.91 81.23 L83.64 80.71 L84.36 80.17 L85.07 79.60 L85.76 79.00 L86.43 78.38 L87.09 77.73 L87.73 77.06 L88.36 76.36 L88.96 75.64 L89.54 74.90 L90.10 74.13 L90.64 73.34 L91.16 72.52 L91.65 71.69 L92.12 70.84 L92.56 69.96 L92.97 69.07 L93.36 68.15 L93.72 67.22 L94.05 66.28 L94.36 65.31 L94.63 64.34 L94.87 63.34 L95.08 62.34 L95.26 61.32 L95.41 60.29 L95.52 59.25 L95.60 58.20 L95.65 57.14 L95.66 56.08 L95.63 55.01 L95.57 53.93 L95.48 52.85 L95.35 51.77 L95.18 50.69 L94.98 49.60 L94.74 48.52 L94.46 47.44 L94.15 46.36 L93.80 45.29 L93.41 44.22 L92.99 43.16 L92.53 42.10 L92.03 41.06 L91.49 40.03 L90.92 39.01 L90.31 38.00 L89.67 37.01 L88.98 36.03 L88.27 35.07 L87.51 34.13 L86.73 33.21 L85.90 32.31 L85.05 31.43 L84.16 30.57 L83.24 29.74 L82.28 28.94 L81.30 28.16 L80.28 27.41 L79.23 26.69 L78.15 26.00 L77.05 25.34 L75.92 24.71 L74.76 24.12 L73.57 23.56 L72.36 23.04 L71.13 22.55 L69.87 22.11 L68.60 21.70 L67.30 21.33 L65.98 21.00 L64.65 20.72 L63.30 20.47 L61.93 20.27 L60.55 20.12 L59.16 20.00 L57.75 19.93 L56.34 19.91 L54.92 19.94 L53.49 20.01 L52.05 20.13 L50.62 20.29 L49.17 20.51 L47.73 20.77 L46.29 21.08 L44.85 21.44 L43.42 21.85 L41.99 22.31 L40.57 22.82 L39.16 23.37 L37.76 23.98 L36.37 24.64 L34.99 25.34 L33.63 26.09 L32.29 26.90 L30.97 27.75 L29.67 28.65 L28.39 29.59 L27.13 30.59 L25.90 31.63 L24.70 32.71 L23.53 33.85 L22.38 35.02 L21.27 36.24 L20.20 37.50 L19.16 38.81 L18.15 40.16 L17.19 41.54 L16.27 42.97 L15.38 44.43 L14.55 45.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-  <circle cx="64" cy="62" r="1.9" fill="currentColor"></circle>
-</svg><span>liminex</span></div>
-      <span class="dom">liminex.ai</span>
-    </header>
-    <main>
-      <div class="soon"><i></i><b>Coming soon</b></div>
-      <div class="mark"><svg style="height:212px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 132" fill="none" role="img" aria-label="Liminex">
-  <defs>
-    <linearGradient id="lnA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#d8dbdd"></stop>
-      <stop offset="1" stop-color="#9aa0a3"></stop>
-    </linearGradient>
-  </defs>
-  <path d="M67.14 62.22 L67.17 62.12 L67.19 62.02 L67.21 61.91 L67.22 61.81 L67.23 61.70 L67.24 61.59 L67.24 61.48 L67.24 61.37 L67.24 61.26 L67.23 61.15 L67.22 61.04 L67.21 60.93 L67.19 60.82 L67.17 60.71 L67.14 60.60 L67.12 60.49 L67.08 60.38 L67.05 60.27 L67.01 60.16 L66.96 60.05 L66.91 59.94 L66.86 59.84 L66.81 59.73 L66.75 59.63 L66.68 59.52 L66.62 59.42 L66.55 59.32 L66.47 59.22 L66.39 59.13 L66.31 59.03 L66.23 58.94 L66.14 58.85 L66.05 58.76 L65.95 58.68 L65.85 58.60 L65.75 58.52 L65.65 58.44 L65.54 58.37 L65.43 58.30 L65.32 58.23 L65.20 58.17 L65.08 58.11 L64.96 58.05 L64.83 58.00 L64.71 57.95 L64.58 57.90 L64.45 57.86 L64.31 57.83 L64.18 57.79 L64.04 57.77 L63.90 57.74 L63.76 57.72 L63.62 57.71 L63.48 57.70 L63.33 57.69 L63.19 57.69 L63.04 57.69 L62.90 57.70 L62.75 57.71 L62.60 57.73 L62.45 57.75 L62.31 57.78 L62.16 57.81 L62.01 57.85 L61.86 57.89 L61.72 57.94 L61.57 58.00 L61.43 58.05 L61.28 58.12 L61.14 58.18 L61.00 58.26 L60.86 58.34 L60.73 58.42 L60.59 58.51 L60.46 58.60 L60.33 58.70 L60.20 58.80 L60.07 58.91 L59.95 59.02 L59.83 59.14 L59.71 59.26 L59.60 59.38 L59.49 59.51 L59.39 59.65 L59.28 59.79 L59.19 59.93 L59.09 60.08 L59.00 60.23 L58.92 60.38 L58.84 60.54 L58.76 60.70 L58.69 60.87 L58.62 61.04 L58.56 61.21 L58.51 61.38 L58.46 61.56 L58.41 61.74 L58.38 61.92 L58.34 62.10 L58.32 62.29 L58.29 62.48 L58.28 62.67 L58.27 62.86 L58.27 63.05 L58.27 63.24 L58.28 63.44 L58.30 63.63 L58.32 63.83 L58.35 64.03 L58.39 64.22 L58.43 64.42 L58.48 64.62 L58.53 64.81 L58.60 65.01 L58.67 65.20 L58.74 65.39 L58.82 65.58 L58.91 65.77 L59.01 65.96 L59.11 66.14 L59.22 66.33 L59.34 66.51 L59.46 66.68 L59.59 66.86 L59.73 67.03 L59.87 67.20 L60.02 67.36 L60.17 67.52 L60.33 67.67 L60.50 67.83 L60.67 67.97 L60.85 68.11 L61.03 68.25 L61.22 68.38 L61.41 68.51 L61.61 68.63 L61.82 68.74 L62.03 68.85 L62.24 68.95 L62.46 69.05 L62.68 69.13 L62.91 69.22 L63.14 69.29 L63.38 69.36 L63.61 69.42 L63.86 69.47 L64.10 69.52 L64.35 69.55 L64.60 69.58 L64.85 69.60 L65.10 69.62 L65.36 69.62 L65.62 69.62 L65.87 69.61 L66.13 69.59 L66.39 69.56 L66.66 69.52 L66.92 69.47 L67.18 69.42 L67.44 69.35 L67.70 69.28 L67.96 69.20 L68.21 69.11 L68.47 69.01 L68.72 68.90 L68.98 68.78 L69.23 68.65 L69.47 68.52 L69.72 68.37 L69.96 68.22 L70.19 68.06 L70.42 67.89 L70.65 67.71 L70.87 67.52 L71.09 67.33 L71.31 67.12 L71.51 66.91 L71.72 66.69 L71.91 66.46 L72.10 66.23 L72.28 65.98 L72.46 65.73 L72.63 65.48 L72.79 65.21 L72.94 64.94 L73.08 64.66 L73.22 64.38 L73.35 64.09 L73.47 63.79 L73.58 63.49 L73.68 63.19 L73.77 62.88 L73.85 62.56 L73.92 62.24 L73.98 61.92 L74.03 61.59 L74.08 61.26 L74.11 60.92 L74.12 60.58 L74.13 60.24 L74.13 59.90 L74.12 59.56 L74.09 59.21 L74.05 58.87 L74.00 58.52 L73.94 58.17 L73.87 57.83 L73.79 57.48 L73.69 57.13 L73.59 56.79 L73.47 56.45 L73.34 56.11 L73.19 55.77 L73.04 55.43 L72.87 55.10 L72.69 54.77 L72.50 54.45 L72.30 54.13 L72.09 53.81 L71.86 53.50 L71.63 53.20 L71.38 52.90 L71.12 52.61 L70.85 52.33 L70.57 52.05 L70.28 51.78 L69.98 51.52 L69.67 51.27 L69.34 51.02 L69.01 50.79 L68.67 50.56 L68.32 50.35 L67.96 50.14 L67.60 49.95 L67.22 49.77 L66.84 49.60 L66.44 49.44 L66.04 49.29 L65.64 49.15 L65.23 49.03 L64.81 48.92 L64.38 48.82 L63.95 48.74 L63.52 48.67 L63.08 48.61 L62.63 48.57 L62.18 48.54 L61.73 48.53 L61.28 48.53 L60.82 48.55 L60.36 48.58 L59.90 48.63 L59.44 48.69 L58.98 48.77 L58.52 48.86 L58.06 48.97 L57.60 49.09 L57.14 49.23 L56.69 49.39 L56.23 49.56 L55.78 49.75 L55.34 49.95 L54.89 50.17 L54.46 50.41 L54.02 50.66 L53.60 50.92 L53.18 51.21 L52.77 51.50 L52.36 51.81 L51.96 52.14 L51.58 52.48 L51.20 52.84 L50.83 53.21 L50.47 53.59 L50.12 53.99 L49.78 54.41 L49.45 54.83 L49.14 55.27 L48.84 55.72 L48.55 56.18 L48.28 56.66 L48.02 57.15 L47.77 57.64 L47.54 58.15 L47.33 58.67 L47.13 59.20 L46.94 59.74 L46.78 60.29 L46.63 60.84 L46.50 61.41 L46.38 61.98 L46.29 62.56 L46.21 63.14 L46.15 63.73 L46.11 64.33 L46.09 64.93 L46.09 65.53 L46.11 66.14 L46.15 66.74 L46.21 67.36 L46.29 67.97 L46.39 68.58 L46.51 69.19 L46.65 69.81 L46.81 70.42 L47.00 71.03 L47.20 71.63 L47.43 72.24 L47.67 72.84 L47.94 73.43 L48.23 74.02 L48.54 74.60 L48.87 75.18 L49.22 75.75 L49.59 76.30 L49.98 76.85 L50.40 77.39 L50.83 77.92 L51.28 78.44 L51.75 78.95 L52.24 79.44 L52.75 79.92 L53.28 80.39 L53.82 80.84 L54.38 81.27 L54.96 81.69 L55.56 82.10 L56.18 82.48 L56.81 82.85 L57.45 83.20 L58.11 83.53 L58.79 83.84 L59.47 84.13 L60.18 84.39 L60.89 84.64 L61.62 84.86 L62.35 85.07 L63.10 85.24 L63.86 85.40 L64.63 85.53 L65.40 85.64 L66.18 85.72 L66.97 85.77 L67.77 85.81 L68.57 85.81 L69.38 85.79 L70.19 85.74 L71.00 85.67 L71.81 85.56 L72.63 85.43 L73.44 85.28 L74.26 85.09 L75.07 84.88 L75.88 84.64 L76.69 84.37 L77.49 84.08 L78.29 83.75 L79.08 83.40 L79.86 83.02 L80.64 82.62 L81.41 82.18 L82.16 81.72 L82.91 81.23 L83.64 80.71 L84.36 80.17 L85.07 79.60 L85.76 79.00 L86.43 78.38 L87.09 77.73 L87.73 77.06 L88.36 76.36 L88.96 75.64 L89.54 74.90 L90.10 74.13 L90.64 73.34 L91.16 72.52 L91.65 71.69 L92.12 70.84 L92.56 69.96 L92.97 69.07 L93.36 68.15 L93.72 67.22 L94.05 66.28 L94.36 65.31 L94.63 64.34 L94.87 63.34 L95.08 62.34 L95.26 61.32 L95.41 60.29 L95.52 59.25 L95.60 58.20 L95.65 57.14 L95.66 56.08 L95.63 55.01 L95.57 53.93 L95.48 52.85 L95.35 51.77 L95.18 50.69 L94.98 49.60 L94.74 48.52 L94.46 47.44 L94.15 46.36 L93.80 45.29 L93.41 44.22 L92.99 43.16 L92.53 42.10 L92.03 41.06 L91.49 40.03 L90.92 39.01 L90.31 38.00 L89.67 37.01 L88.98 36.03 L88.27 35.07 L87.51 34.13 L86.73 33.21 L85.90 32.31 L85.05 31.43 L84.16 30.57 L83.24 29.74 L82.28 28.94 L81.30 28.16 L80.28 27.41 L79.23 26.69 L78.15 26.00 L77.05 25.34 L75.92 24.71 L74.76 24.12 L73.57 23.56 L72.36 23.04 L71.13 22.55 L69.87 22.11 L68.60 21.70 L67.30 21.33 L65.98 21.00 L64.65 20.72 L63.30 20.47 L61.93 20.27 L60.55 20.12 L59.16 20.00 L57.75 19.93 L56.34 19.91 L54.92 19.94 L53.49 20.01 L52.05 20.13 L50.62 20.29 L49.17 20.51 L47.73 20.77 L46.29 21.08 L44.85 21.44 L43.42 21.85 L41.99 22.31 L40.57 22.82 L39.16 23.37 L37.76 23.98 L36.37 24.64 L34.99 25.34 L33.63 26.09 L32.29 26.90 L30.97 27.75 L29.67 28.65 L28.39 29.59 L27.13 30.59 L25.90 31.63 L24.70 32.71 L23.53 33.85 L22.38 35.02 L21.27 36.24 L20.20 37.50 L19.16 38.81 L18.15 40.16 L17.19 41.54 L16.27 42.97 L15.38 44.43 L14.55 45.93" stroke="url(#lnA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-  <path d="M64.00 64.40 L64.08 64.41 L64.16 64.42 L64.24 64.43 L64.32 64.44 L64.40 64.44 L64.48 64.44 L64.57 64.44 L64.65 64.43 L64.73 64.42 L64.82 64.41 L64.90 64.40 L64.98 64.38 L65.07 64.36 L65.15 64.34 L65.23 64.31 L65.32 64.29 L65.40 64.26 L65.48 64.22 L65.56 64.19 L65.64 64.15 L65.72 64.10 L65.80 64.06 L65.88 64.01 L65.95 63.96 L66.03 63.91 L66.10 63.85 L66.17 63.79 L66.24 63.73 L66.31 63.67 L66.38 63.60 L66.44 63.53 L66.51 63.46 L66.57 63.38 L66.63 63.31 L66.68 63.23 L66.74 63.15 L66.79 63.06 L66.84 62.98 L66.89 62.89 L66.93 62.80 L66.98 62.71 L67.02 62.61 L67.05 62.52 L67.08 62.42 L67.12 62.32 L67.14 62.22" stroke="#cc2f3d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
-  <circle cx="64" cy="62" r="1.9" fill="#e2616c"></circle>
-</svg></div>
-      <h1>liminex<span class="x">.ai</span></h1>
-      <div class="tag">Cross over, come deeper.</div>
-    </main>
-    <footer>Practical philosophy&nbsp;&nbsp;|&nbsp;&nbsp;Spiritual practice</footer>
-  </div>
+  <main>
+    <svg class="mark fade" viewBox="33 6 150 168" aria-hidden="true">
+      <path d="M 100.00 14.00 L 104.35 14.47 L 108.66 15.15 L 112.91 16.05 L 117.09 17.16 L 121.19 18.47 L 125.21 19.98 L 129.12 21.69 L 132.93 23.59 L 136.62 25.67 L 140.18 27.93 L 143.62 30.35 L 146.91 32.94 L 150.05 35.68 L 153.03 38.56 L 155.86 41.58 L 158.51 44.72 L 160.99 47.98 L 163.30 51.35 L 165.42 54.82 L 167.35 58.38 L 169.09 62.02 L 170.64 65.72 L 172.00 69.48 L 173.15 73.29 L 174.11 77.14 L 174.86 81.02 L 175.42 84.91 L 175.78 88.81 L 175.93 92.71 L 175.89 96.59 L 175.65 100.45 L 175.22 104.28 L 174.59 108.07 L 173.78 111.80 L 172.79 115.47 L 171.61 119.07 L 170.25 122.59 L 168.73 126.03 L 167.04 129.37 L 165.19 132.60 L 163.19 135.73 L 161.04 138.73 L 158.74 141.61 L 156.32 144.36 L 153.77 146.98 L 151.10 149.44 L 148.32 151.76 L 145.44 153.93 L 142.46 155.94 L 139.40 157.78 L 136.26 159.47 L 133.05 160.98 L 129.78 162.32 L 126.47 163.49 L 123.11 164.49 L 119.72 165.31 L 116.30 165.96 L 112.88 166.42 L 109.44 166.72 L 106.02 166.83 L 102.60 166.78 L 99.20 166.55 L 95.84 166.15 L 92.51 165.58 L 89.23 164.84 L 86.01 163.95 L 82.85 162.89 L 79.75 161.68 L 76.74 160.32 L 73.81 158.82 L 70.98 157.17 L 68.24 155.40 L 65.61 153.49 L 63.08 151.46 L 60.68 149.31 L 58.39 147.05 L 56.24 144.69 L 54.21 142.23 L 52.32 139.68 L 50.57 137.06 L 48.96 134.35 L 47.50 131.58 L 46.18 128.75 L 45.02 125.87 L 44.01 122.95 L 43.15 119.99 L 42.44 117.00 L 41.90 114.00 L 41.50 110.98 L 41.26 107.96 L 41.18 104.94 L 41.25 101.93 L 41.47 98.95 L 41.84 95.99 L 42.35 93.07 L 43.02 90.19 L 43.82 87.35 L 44.77 84.58 L 45.85 81.87 L 47.06 79.22 L 48.40 76.65 L 49.86 74.17 L 51.44 71.77 L 53.13 69.46 L 54.93 67.25 L 56.83 65.15 L 58.83 63.15 L 60.92 61.27 L 63.09 59.50 L 65.34 57.85 L 67.66 56.32 L 70.05 54.92 L 72.50 53.65 L 74.99 52.51 L 77.53 51.50 L 80.11 50.62 L 82.72 49.88 L 85.35 49.28 L 87.99 48.81 L 90.65 48.48 L 93.31 48.29 L 95.96 48.23 L 98.61 48.31 L 101.23 48.52 L 103.83 48.86 L 106.40 49.33 L 108.93 49.93 L 111.42 50.65 L 113.86 51.49 L 116.24 52.46 L 118.56 53.54 L 120.81 54.73 L 122.99 56.03 L 125.09 57.43 L 127.11 58.93 L 129.04 60.53 L 130.88 62.21 L 132.63 63.98 L 134.28 65.83 L 135.82 67.75 L 137.26 69.73 L 138.59 71.79 L 139.81 73.89 L 140.92 76.05 L 141.91 78.25 L 142.78 80.49 L 143.54 82.76 L 144.18 85.06 L 144.69 87.38 L 145.09 89.71 L 145.37 92.05 L 145.52 94.39 L 145.56 96.72 L 145.48 99.05 L 145.28 101.36 L 144.97 103.64 L 144.54 105.90 L 144.00 108.12 L 143.35 110.31 L 142.60 112.44 L 141.74 114.53 L 140.77 116.57 L 139.71 118.54 L 138.56 120.45 L 137.32 122.29 L 135.98 124.06 L 134.57 125.76 L 133.08 127.37 L 131.52 128.89 L 129.88 130.33 L 128.18 131.68 L 126.43 132.94 L 124.62 134.10 L 122.76 135.16 L 120.85 136.12 L 118.91 136.98 L 116.94 137.74 L 114.93 138.39 L 112.91 138.94 L 110.87 139.38 L 108.82 139.72 L 106.76 139.95 L 104.70 140.08 L 102.64 140.10 L 100.60 140.01 L 98.57 139.83 L 96.56 139.54 L 94.58 139.15 L 92.62 138.66 L 90.71 138.08 L 88.83 137.40 L 87.00 136.64 L 85.21 135.78 L 83.48 134.84 L 81.80 133.81 L 80.19 132.71 L 78.64 131.53 L 77.16 130.28 L 75.75 128.96 L 74.42 127.57 L 73.16 126.13 L 71.98 124.63 L 70.89 123.07 L 69.88 121.48 L 68.95 119.83 L 68.12 118.15 L 67.37 116.44 L 66.71 114.70 L 66.15 112.94 L 65.68 111.15 L 65.30 109.35 L 65.01 107.55 L 64.82 105.73 L 64.72 103.92 L 64.71 102.11 L 64.80 100.32 L 64.97 98.53 L 65.24 96.77 L 65.59 95.02 L 66.03 93.31 L 66.55 91.62 L 67.16 89.98 L 67.84 88.37 L 68.60 86.80 L 69.44 85.28 L 70.35 83.82 L 71.33 82.40 L 72.38 81.05 L 73.49 79.75 L 74.66 78.52 L 75.88 77.35 L 77.16 76.25 L 78.48 75.22 L 79.86 74.27 L 81.27 73.39 L 82.72 72.58 L 84.20 71.86 L 85.71 71.21 L 87.24 70.64 L 88.80 70.16 L 90.37 69.75 L 91.95 69.43 L 93.55 69.18 L 95.14 69.02 L 96.74 68.95 L 98.33 68.95 L 99.91 69.03 L 101.48 69.20 L 103.03 69.44 L 104.56 69.76 L 106.07 70.15 L 107.54 70.62 L 108.99 71.16 L 110.40 71.77 L 111.77 72.45 L 113.11 73.20 L 114.39 74.01 L 115.63 74.87 L 116.82 75.80 L 117.95 76.78 L 119.03 77.82 L 120.05 78.90 L 121.01 80.03 L 121.91 81.20 L 122.74 82.42 L 123.51 83.66 L 124.21 84.94 L 124.84 86.25 L 125.40 87.58 L 125.89 88.93 L 126.31 90.30 L 126.66 91.69 L 126.94 93.08 L 127.14 94.49 L 127.27 95.89 L 127.33 97.29 L 127.32 98.69 L 127.24 100.08 L 127.09 101.46 L 126.87 102.82 L 126.58 104.17 L 126.23 105.49 L 125.81 106.79 L 125.32 108.06 L 124.78 109.30 L 124.17 110.50 L 123.51 111.67 L 122.79 112.80 L 122.02 113.88 L 121.20 114.92 L 120.33 115.91 L 119.41 116.86 L 118.45 117.75 L 117.45 118.59 L 116.42 119.37 L 115.35 120.10 L 114.25 120.76 L 113.12 121.37 L 111.97 121.92 L 110.79 122.41 L 109.60 122.83 L 108.39 123.20 L 107.17 123.50 L 105.94 123.73 L 104.71 123.90 L 103.47 124.01 L 102.24 124.06 L 101.01 124.04 L 99.78 123.96 L 98.57 123.82 L 97.37 123.62 L 96.19 123.36 L 95.03 123.04 L 93.89 122.66 L 92.78 122.23 L 91.69 121.75 L 90.63 121.21 L 89.61 120.62 L 88.62 119.98 L 87.67 119.30 L 86.76 118.57 L 85.89 117.80 L 85.07 116.99 L 84.29 116.14 L 83.56 115.26 L 82.87 114.34 L 82.24 113.40 L 81.66 112.42 L 81.13 111.43 L 80.65 110.41 L 80.23 109.38 L 79.86 108.32 L 79.55 107.26 L 79.29 106.18 L 79.09 105.10 L 78.95 104.02 L 78.86 102.93 L 78.82 101.84 L 78.85 100.76 L 78.92 99.68 L 79.05 98.62 L 79.24 97.57 L 79.47 96.53 L 79.76 95.51 L 80.09 94.51 L 80.48 93.53 L 80.91 92.58 L 81.39 91.65 L 81.92 90.75 L 82.48 89.89 L 83.09 89.05 L 83.74 88.26 L 84.42 87.50 L 85.14 86.78 L 85.89 86.10 L 86.67 85.46 L 87.47 84.86 L 88.31 84.31 L 89.17 83.80 L 90.05 83.34 L 90.94 82.93 L 91.86 82.56 L 92.78 82.24 L 93.72 81.97 L 94.67 81.75 L 95.62 81.58 L 96.58 81.46 L 97.54 81.39 L 98.49 81.36 L 99.44 81.39 L 100.39 81.46 L 101.32 81.58 L 102.25 81.75 L 103.16 81.96 L 104.06 82.22 L 104.94 82.52 L 105.80 82.86 L 106.63 83.25 L 107.44 83.68 L 108.23 84.14 L 108.99 84.64 L 109.72 85.18 L 110.42 85.75 L 111.08 86.36 L 111.71 86.99 L 112.31 87.66 L 112.86 88.35 L 113.38 89.06 L 113.87 89.80 L 114.31 90.56 L 114.71 91.33 L 115.07 92.12 L 115.38 92.93 L 115.66 93.75 L 115.89 94.57 L 116.08 95.41 L 116.23 96.25 L 116.33 97.09 L 116.39 97.93 L 116.40 98.77 L 116.38 99.61 L 116.31 100.44 L 116.20 101.26 L 116.05 102.08 L 115.85 102.88 L 115.62 103.66 L 115.35 104.44 L 115.04 105.19 L 114.70 105.92 L 114.32 106.63 L 113.91 107.32 L 113.46 107.99 L 112.98 108.63 L 112.48 109.24 L 111.94 109.82 L 111.38 110.37 L 110.79 110.89 L 110.18 111.38 L 109.55 111.83 L 108.90 112.25"
+            fill="none" stroke="#d8dbdd" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+      <circle id="halo" cx="100" cy="100" r="13" fill="#cc2f3d" fill-opacity="0.4"/>
+      <circle id="core" cx="100" cy="100" r="5" fill="#e2616c"/>
+    </svg>
+
+    <h1 class="word fade d1">Liminex</h1>
+    <p class="tag fade d2">Cross over, come deeper.</p>
+    <div class="hr fade d3"></div>
+    <p class="creed fade d3">Wisdom is not a product to be consumed&#8202;—&#8202;it is a descent to be made.</p>
+    <p class="voice fade d4"><b>Soft hands, hard sources. No comfort blanket.</b></p>
+    <p class="pos fade d4">Practical philosophy and genuine practice across the great traditions — every answer grounded in the actual corpus: real texts, real translations, and citations you can follow to the root.</p>
+
+    <p class="soon fade d5">A threshold — opening soon</p>
+
+    <form class="fade d6" id="notify" novalidate>
+      <input type="email" id="email" name="email" placeholder="your email" autocomplete="email" aria-label="Email address" required>
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="note fade d6" id="note" role="status" aria-live="polite">Be told when we open the threshold.</p>
+    <p class="thanks" id="thanks">Thank you. We&rsquo;ll send word when the threshold opens.</p>
+  </main>
+
+  <footer class="fade d7">LIMINEX &nbsp;·&nbsp; MMXXVI</footer>
+
+<script>
+  // ── Email capture ───────────────────────────────────────────────
+  // Paste a form-backend endpoint to actually store sign-ups, e.g.
+  // a Formspree URL ("https://formspree.io/f/xxxxxx") or your own API.
+  // Left empty, the form gives a graceful thank-you but stores nothing.
+  const NOTIFY_ENDPOINT = "";
+
+  const form = document.getElementById('notify');
+  const email = document.getElementById('email');
+  const note = document.getElementById('note');
+  const thanks = document.getElementById('thanks');
+  const ok = (v) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  const setNote = (m, e) => { note.textContent = m; note.classList.toggle('err', !!e); };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const value = email.value.trim();
+    if (!ok(value)) { setNote('Please enter a valid email.', true); email.focus(); return; }
+    setNote('Sending…', false);
+    try {
+      if (NOTIFY_ENDPOINT) {
+        const r = await fetch(NOTIFY_ENDPOINT, {
+          method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body: JSON.stringify({ email: value, source: 'liminex-coming-soon' })
+        });
+        if (!r.ok) throw new Error('bad status');
+      } else {
+        console.warn('Liminex: NOTIFY_ENDPOINT is empty — sign-up not stored. Wire a backend to capture emails.');
+      }
+      form.style.display = 'none'; note.style.display = 'none'; thanks.style.display = 'block';
+    } catch (err) { setNote('Something went wrong — please try again.', true); }
+  });
+</script>
 </body>
 </html>
